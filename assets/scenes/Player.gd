@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 # variables
-var gravity = 750
+var gravity = 700
 var velocity = Vector2.ZERO
 var moveVector = Vector2.ZERO
 var maxHorizontalSpeed = 110
 var horizontalAcceleration = 2500
-var jumpSpeed = 350
-var jumpTermination = 10
+var jumpSpeed = 400
+var jumpHeldMultiplier = 5
 
 # func _ready() wordt eenmalig uitgevoerd op startup
 func _ready():
@@ -30,9 +30,9 @@ func _process(delta):
 		velocity.y = moveVector.y * jumpSpeed
 		
 	# jump goes brrrr
-	if (velocity.y < 0 && !Input.is_action_just_pressed("move_up")):
-		velocity.y +=  jumpSpeed * jumpTermination * delta
+	if (velocity.y < 0 && !Input.is_action_pressed("move_up")):
+		velocity.y +=  gravity * jumpHeldMultiplier * delta
 	else:
-		velocity.y += jumpSpeed * delta
+		velocity.y += gravity * delta
 		
 	velocity = move_and_slide(velocity, Vector2.UP)
