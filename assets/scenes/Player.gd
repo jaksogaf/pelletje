@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # variables
-var gravity = 750
+var gravity = 15
 var velocity = Vector2.ZERO
 var moveVector = Vector2.ZERO
 var maxHorizontalSpeed = 110
@@ -20,15 +20,15 @@ func _ready():
 # func _process wordt elke frame uitgevoerd, de delta zorg voor delta aka frame independent 
 # aka iemand met hogere refresh rate zal niet sneller gaan
 func _process(delta):
-	if (position.y > 500):
+	if (position.y > 1000):
 		$AnimatedSprite.flip_h = false
 		position = playerStartPosition
 	
 	moveVector = movement_vector()
 	#deacceleration, je stopt niet instant
-	velocity.x += moveVector.x * horizontalAcceleration * delta
+	velocity.x += moveVector.x * horizontalAcceleration
 	if (moveVector.x == 0):
-		velocity.x = lerp(0, velocity.x, pow(2, -50 * delta)) 
+		velocity.x = lerp(0, velocity.x, 0.85) 
 #lerp is een functie voor interpolation, hierdoor deacceleration
 #pow is to the power of, wiskunde
 	velocity.x = clamp(velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed)
@@ -41,9 +41,9 @@ func _process(delta):
 		
 	# jump goes brrrr
 	if (velocity.y < 0 && !Input.is_action_pressed("move_up")):
-		velocity.y +=  gravity * jumpTerminationMultiplier * delta
+		velocity.y +=  gravity * jumpTerminationMultiplier
 	else:
-		velocity.y += gravity * delta
+		velocity.y += gravity
 	#doublejump
 	if (!is_on_floor() && jumpCount < maxJumpCount && Input.is_action_just_pressed("move_up")):
 		velocity.y = moveVector.y * jumpSpeed * 0.85
