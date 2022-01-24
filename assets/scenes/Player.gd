@@ -36,6 +36,7 @@ func _process(delta):
 	
 	# alleen springen als karakter op de vloer is
 	if (moveVector.y < 0 && is_on_floor()):
+		$JumpSound.play()
 		jumpCount = 0
 		velocity.y = moveVector.y * jumpSpeed
 		
@@ -44,8 +45,10 @@ func _process(delta):
 		velocity.y +=  gravity * jumpTerminationMultiplier
 	else:
 		velocity.y += gravity
+		
 	#doublejump
 	if (!is_on_floor() && jumpCount < maxJumpCount && Input.is_action_just_pressed("move_up")):
+		$JumpSound.play()
 		velocity.y = moveVector.y * jumpSpeed * 0.85
 		jumpCount += 1
 		

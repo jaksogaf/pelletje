@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/character_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/sfx/jump.ogg" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -60,3 +61,7 @@ offset = Vector2( 0, -12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
 shape = SubResource( 1 )
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
