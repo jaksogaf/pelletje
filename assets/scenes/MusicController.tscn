@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/music/JDB_Exploration 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/scenes/MusicController.gd" type="Script" id=2]
+
+[node name="MusicController" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
