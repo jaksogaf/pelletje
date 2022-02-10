@@ -1,14 +1,14 @@
 extends KinematicBody2D
 
 # variables
-var gravity = 15
+var gravity = 10
 var velocity = Vector2.ZERO
 var moveVector = Vector2.ZERO
 var maxHorizontalSpeed = 110
 var horizontalAcceleration = 2500
 var playerStartPosition = Vector2.ZERO
 
-var jumpSpeed = 300
+var jumpSpeed = 250
 var jumpTerminationMultiplier = 5
 var jumpCount = 0
 var maxJumpCount = 1
@@ -20,7 +20,7 @@ func _ready():
 # func _process wordt elke frame uitgevoerd, de delta zorg voor delta aka frame independent 
 # aka iemand met hogere refresh rate zal niet sneller gaan
 func _process(delta):
-	if (position.y > 1000):
+	if (position.y > 1250):
 		$AnimatedSprite.flip_h = false
 		position = playerStartPosition
 	
