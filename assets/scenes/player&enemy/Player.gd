@@ -21,6 +21,7 @@ func _ready():
 # aka iemand met hogere refresh rate zal niet sneller gaan
 func _process(delta):
 	if (position.y > 1250):
+		get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
 		$AnimatedSprite.flip_h = false
 		position = playerStartPosition
 	
@@ -75,8 +76,6 @@ func playerAnimation():
 	if(moveVector.x != 0):
 		$AnimatedSprite.flip_h = false if (moveVector.x > 0) else true
 
-
-
-func _on_WEPDArea_body_entered(body):
-	if body.get_name() == 'Player':
-		position = playerStartPosition
+func enemyColission():
+	get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
+	position = playerStartPosition

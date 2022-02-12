@@ -4,7 +4,6 @@ var playerNode = 0
 var player = 0
 var targetPosition = Vector2.ZERO
 
-#deze moeten in andere autoload ding maar ben nu testen
 var currentLevel = 0
 
 func _process(delta):

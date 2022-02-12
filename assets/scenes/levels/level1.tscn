@@ -1,20 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/scenes/levels/Exit.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/enemy/character_0002.png" type="Texture" id=2]
+[ext_resource path="res://assets/scenes/player&enemy/WalkingEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/levels/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/player&enemy/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/TileMapGrass.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/scenes/player&enemy/WalkingEnemy.gd" type="Script" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 9.5 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 9.5 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 9, 2 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,45 +22,25 @@ position = Vector2( 1126, -38 )
 
 [node name="WalkingEnemy" type="Node" parent="."]
 
-[node name="WalkingEnemyKinematic" type="KinematicBody2D" parent="WalkingEnemy"]
-position = Vector2( 6, 249 )
-script = ExtResource( 6 )
+[node name="WalkingEnemyKinematic" parent="WalkingEnemy" instance=ExtResource( 2 )]
 
-[node name="RayCastRight" type="RayCast2D" parent="WalkingEnemy/WalkingEnemyKinematic"]
-position = Vector2( 12, 0 )
-enabled = true
-cast_to = Vector2( 0, 20 )
-collision_mask = 2
-collide_with_areas = true
+[node name="WalkingEnemyKinematic2" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 220, 321 )
 
-[node name="RayCastLeft" type="RayCast2D" parent="WalkingEnemy/WalkingEnemyKinematic"]
-position = Vector2( -12, 0 )
-enabled = true
-cast_to = Vector2( 0, 20 )
-collision_mask = 2
-collide_with_areas = true
+[node name="WalkingEnemyKinematic3" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 219, 15 )
 
-[node name="WalkingEnemySprite" type="Sprite" parent="WalkingEnemy/WalkingEnemyKinematic"]
-position = Vector2( 0, 1 )
-texture = ExtResource( 2 )
+[node name="WalkingEnemyKinematic4" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 539, 123 )
 
-[node name="CollisionShapeKinematic" type="CollisionShape2D" parent="WalkingEnemy/WalkingEnemyKinematic"]
-light_mask = 0
-position = Vector2( 0, 3.5 )
-shape = SubResource( 1 )
+[node name="WalkingEnemyKinematic5" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 609, 357 )
 
-[node name="WEPDArea" type="Area2D" parent="WalkingEnemy/WalkingEnemyKinematic"]
-position = Vector2( -6, -249 )
+[node name="WalkingEnemyKinematic6" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 1286, 87 )
 
-[node name="CollisionWEPD" type="CollisionShape2D" parent="WalkingEnemy/WalkingEnemyKinematic/WEPDArea"]
-position = Vector2( 6, 252.5 )
-shape = SubResource( 2 )
+[node name="WalkingEnemyKinematic7" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 1054, 195 )
 
-[node name="WEDArea" type="Area2D" parent="WalkingEnemy/WalkingEnemyKinematic"]
-
-[node name="CollisionWEDArea" type="CollisionShape2D" parent="WalkingEnemy/WalkingEnemyKinematic/WEDArea"]
-position = Vector2( 0, -8 )
-shape = SubResource( 3 )
-
-[connection signal="body_entered" from="WalkingEnemy/WalkingEnemyKinematic/WEPDArea" to="Player" method="_on_WEPDArea_body_entered"]
-[connection signal="body_entered" from="WalkingEnemy/WalkingEnemyKinematic/WEDArea" to="WalkingEnemy/WalkingEnemyKinematic" method="_on_WEDArea_body_entered"]
+[node name="WalkingEnemyKinematic8" parent="WalkingEnemy" instance=ExtResource( 2 )]
+position = Vector2( 1070, 339 )

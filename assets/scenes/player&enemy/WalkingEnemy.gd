@@ -18,10 +18,15 @@ func _process(delta):
 	colliderRight = $RayCastRight.get_collider()
 	
 	if (is_on_floor()):
+		$WalkingEnemySprite.play('walk')
 		velocity.x = speed * direction
 		if (colliderLeft == null || colliderRight == null):
 			direction = direction * -1
 			position.x += 2 * direction
+	
+	if (is_on_wall()):
+		direction = direction *-1
+		position.x += 2*direction
 			
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 	
@@ -33,4 +38,11 @@ func _process(delta):
 
 func _on_WEDArea_body_entered(body):
 	if body.get_name() == 'Player':
+		get_node("/root/GlobalCamera/PlayerController").score += 10
+		print(get_node("/root/GlobalCamera/PlayerController").score)
 		queue_free()
+
+
+func _on_WEPDArea_body_entered(body):
+		if body.get_name() == 'Player':
+			body.enemyColission()
