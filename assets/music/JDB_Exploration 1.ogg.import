@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JDB_Exploration 1.ogg-f31623980350bacfdfde7c6f0c73b0bd.oggstr"
+
+[deps]
+
+source_file="res://assets/music/JDB_Exploration 1.ogg"
+dest_files=[ "res://.import/JDB_Exploration 1.ogg-f31623980350bacfdfde7c6f0c73b0bd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
