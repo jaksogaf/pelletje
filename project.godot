@@ -50,6 +50,7 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 MusicController="*res://assets/scenes/AutoLoad/MusicController.tscn"
 GlobalCamera="*res://assets/scenes/AutoLoad/Camera.tscn"
+GetLevels="*res://assets/scenes/AutoLoad/getLevels.gd"
 
 [display]
 

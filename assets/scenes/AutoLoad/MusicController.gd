@@ -3,7 +3,7 @@ var currentLevel = 0
 var switch = false
 
 func _process(delta):
-	currentLevel = get_node("/root/GlobalCamera").currentLevel
+	currentLevel = get_node("/root/GetLevels").currentLevel
 	if (currentLevel == 0):
 		if (!self.playing):
 			self.stream = load("res://assets/music/Dramatic Retro Game Theme #4 (Looped).wav")

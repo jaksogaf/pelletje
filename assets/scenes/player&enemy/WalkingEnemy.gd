@@ -23,7 +23,10 @@ func _process(delta):
 		if (colliderLeft == null || colliderRight == null):
 			direction = direction * -1
 			position.x += 2 * direction
-	
+	elif (!is_on_floor()):
+			if (colliderLeft != null && colliderRight != null):
+				velocity.y += gravity
+				
 	if (is_on_wall()):
 		direction = direction *-1
 		position.x += 2*direction

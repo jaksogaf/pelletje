@@ -7,6 +7,7 @@ var targetPosition = Vector2.ZERO
 var currentLevel = 0
 
 func _process(delta):
+	currentLevel = get_node("/root/GetLevels").currentLevel
 	if (currentLevel != 0 && currentLevel != -1):
 		player_target_position()
 		global_position = lerp(targetPosition, global_position, pow(2, -25 * delta))

@@ -10,6 +10,6 @@ func _ready():
 func _process(delta):
 	if (playerHealth <= 0):
 		get_tree().change_scene("res://assets/scenes/levels/level1.tscn")
-		get_node("/root/GlobalCamera").currentLevel = 1
+		get_node("/root/GetLevels").currentLevel = 1
 		score = 0
 		playerHealth = 3
