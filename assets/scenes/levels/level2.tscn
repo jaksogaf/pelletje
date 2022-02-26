@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/scenes/levels/Exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scenes/levelExtraObjects/Exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/player&enemy/WalkingEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/scenes/levels/ParallaxBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/levelExtraObjects/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/player&enemy/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/scenes/levels/TileMapGrass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scenes/levelExtraObjects/TileMapGrass.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 

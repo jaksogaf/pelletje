@@ -1,13 +1,15 @@
-extends RichTextLabel
+extends Label
 
 var elapsedTime = 0.0
 var minutes = 0
 var seconds = 0
 
+	
+
 func _process(delta):
-	if (get_node("/root/GlobalCamera").currentLevel == 0 || get_node("/root/GlobalCamera").currentLevel == -1 ):
+	if (get_node("/root/GetLevels").currentLevel == 0 || get_node("/root/GetLevels").currentLevel == -1 ):
 		self.visible = false
-	elif (get_node("/root/GlobalCamera").currentLevel != 0):
+	elif (get_node("/root/GetLevels").currentLevel != 0):
 		self.visible = true
 		elapsedTime += delta
 		minutes = int(elapsedTime/60)

@@ -22,16 +22,16 @@ func _process(delta):
 		velocity.x = speed * direction
 		if (colliderLeft == null || colliderRight == null):
 			direction = direction * -1
-			position.x += 2 * direction
+			position.x += 2*direction
 	elif (!is_on_floor()):
-			if (colliderLeft != null && colliderRight != null):
+			if (colliderLeft == null && colliderRight == null):
 				velocity.y += gravity
 				
 	if (is_on_wall()):
 		direction = direction *-1
 		position.x += 2*direction
 			
-	velocity = move_and_slide(velocity, Vector2(0,-1))
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	if (direction == -1):
 		$WalkingEnemySprite.flip_h = false

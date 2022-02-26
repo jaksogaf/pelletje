@@ -77,7 +77,6 @@ func playerAnimation():
 		$AnimatedSprite.flip_h = false if (moveVector.x > 0) else true
 
 func enemyColission():
-	var levelPaths = get_node("/root/GetLevels").levelsPaths()
-	var lvl = get_node("/root/GetLevels").currentLevel
-	get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
-	position = playerStartPosition
+	if (get_node("/root/GlobalCamera/PlayerController").playerHealth > 0):
+		get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
+		position = playerStartPosition
