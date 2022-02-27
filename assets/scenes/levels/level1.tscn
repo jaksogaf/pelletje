@@ -19,28 +19,31 @@ position = Vector2( -117, 229 )
 [node name="Exit" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1126, -38 )
 
-[node name="WalkingEnemy" type="Node" parent="."]
+[node name="WalkingEnemies" type="Node" parent="."]
 
-[node name="WalkingEnemyKinematic" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 10, 249 )
 
-[node name="WalkingEnemyKinematic2" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic2" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 220, 321 )
 
-[node name="WalkingEnemyKinematic3" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic3" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 219, 15 )
 
-[node name="WalkingEnemyKinematic4" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic4" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 539, 123 )
 
-[node name="WalkingEnemyKinematic5" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic5" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 609, 357 )
 
-[node name="WalkingEnemyKinematic6" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic6" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 1286, 87 )
 
-[node name="WalkingEnemyKinematic7" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic7" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 1054, 195 )
 
-[node name="WalkingEnemyKinematic8" parent="WalkingEnemy" instance=ExtResource( 2 )]
+[node name="WalkingEnemyKinematic8" parent="WalkingEnemies" instance=ExtResource( 2 )]
 position = Vector2( 1070, 339 )
+
+[node name="WalkingEnemyKinematic9" parent="WalkingEnemies" instance=ExtResource( 2 )]
+position = Vector2( -508, 753 )

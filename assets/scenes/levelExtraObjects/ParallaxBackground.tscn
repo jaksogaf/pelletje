@@ -8,7 +8,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, -200 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 1155, 0 )
+motion_mirroring = Vector2( 1150, 625 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
 scale = Vector2( 0.5, 0.5 )

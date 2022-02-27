@@ -6,6 +6,7 @@ var speed = 35
 var direction = 1
 var colliderLeft = 0
 var colliderRight = 0
+var spawner = false
 
 func _ready():
 	pass 
@@ -42,7 +43,8 @@ func _process(delta):
 func _on_WEDArea_body_entered(body):
 	if body.get_name() == 'Player':
 		get_node("/root/GlobalCamera/PlayerController").score += 10
-		print(get_node("/root/GlobalCamera/PlayerController").score)
+		if (spawner == true):
+			get_node("/root/GlobalCamera/PlayerController").spawnerEnemyCount -= 1
 		queue_free()
 
 

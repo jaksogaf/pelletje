@@ -3,18 +3,24 @@ extends Node
 var playerHealth = 3
 var score = 0
 var coins = 0
+var spawnerEnemyCount = 0
 
 func _ready():
 	pass 
 
 
-func _process(delta):
+func _process(delta):	
+	if(Input.is_action_just_pressed("ui_cancel")):
+		get_tree().quit()
+	
 	if (playerHealth <= 0):
 		playerDeath()
 	if (get_node("/root/GetLevels").currentLevel == 0 || get_node("/root/GetLevels").currentLevel == -1 ):
 		get_node("/root/GlobalCamera/Hud/HealthUI").visible = false
+		get_node("/root/GlobalCamera/Hud/Coins").visible = false
 	elif (get_node("/root/GetLevels").currentLevel != 0):
 		get_node("/root/GlobalCamera/Hud/HealthUI").visible = true
+		get_node("/root/GlobalCamera/Hud/Coins").visible = false
 		get_node("/root/GlobalCamera/Hud/HealthUI/HealthFull").rect_size.x = playerHealth * 15
 
 func playerDeath():

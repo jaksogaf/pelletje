@@ -45,9 +45,9 @@ __meta__ = {
 }
 
 [node name="TimeText" type="Label" parent="Hud"]
-margin_left = 280.0
+margin_left = 5.0
 margin_top = 5.0
-margin_right = 340.0
+margin_right = 635.0
 margin_bottom = 19.0
 size_flags_vertical = 1
 text = "Placeholder:text"

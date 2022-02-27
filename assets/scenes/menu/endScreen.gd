@@ -46,15 +46,9 @@ func saveScore():
 		saveScore.open("user://score.save", File.READ)
 		if (scoreData.highScore < score):
 			scoreData.highScore = score
-			$ScoreText.add_color_override("selection_color", Color(255,255,0))
-		else:
-			$ScoreText.add_color_override("selection_color", Color(255,255,255))
 		if (scoreData.bestTime > elapsedTime):
 			scoreData.bestTime = elapsedTime
-			$TimeText.add_color_override("selection_color", Color(255,255,0))
-		else:
-			$TimeText.add_color_override("selection_color", Color(255,255,255))
+			
 		saveScore.close()
 		saveScore.open("user://score.save", File.WRITE)
 		saveScore.store_line(to_json(scoreData))
-		

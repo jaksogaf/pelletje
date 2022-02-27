@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scenes/player&enemy/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/levelExtraObjects/Exit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/levelExtraObjects/TileMapGrass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/levelExtraObjects/ParallaxBackground.tscn" type="PackedScene" id=4]
 
 [node name="Node" type="Node2D"]
 position = Vector2( -119, -195 )
@@ -16,3 +17,5 @@ position = Vector2( -579, 110 )
 
 [node name="Exit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 343, -853 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
