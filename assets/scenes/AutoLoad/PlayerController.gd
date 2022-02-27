@@ -29,3 +29,4 @@ func playerDeath():
 	score = 0
 	coins = 0
 	playerHealth = 3
+	spawnerEnemyCount = 0
