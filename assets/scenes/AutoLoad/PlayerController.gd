@@ -1,7 +1,7 @@
 extends Node
 #hier wordt van alles voor de player geconfigureerd, dit moet via een autoload want dit moet door de levels heen hetzelfde blijven.
 #dit staat bij Camera omdat wij het ergens bij moest en camera was het meest logisch ivm de ui
-var playerHealth = 30
+var playerHealth = 3
 var score = 0
 var coins = 0
 var spawnerEnemyCount = 0

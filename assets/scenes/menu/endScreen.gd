@@ -1,11 +1,11 @@
 extends Node2D
-
+#scores van deze run
 var elapsedTime = 0
 var minutes = 0
 var seconds = 0
 var zero = ""
 var score = 0
-
+#scores van beste run
 var bestTime = 0
 var bestMinutes = 0
 var bestSeconds = 0
@@ -14,7 +14,7 @@ var bestScore = 0
 
 
 func _ready():
-	get_node("/root/GlobalCamera").global_position = Vector2.ZERO
+	get_node("/root/GlobalCamera").global_position = Vector2.ZERO #camera terug zetten
 	score = get_node("/root/GlobalCamera/PlayerController").score
 
 	saveScore()
@@ -35,6 +35,7 @@ func _process(delta):
 		get_tree().change_scene("res://assets/scenes/levels/level1.tscn")
 		
 func saveScore():
+	#code voor het opslaan van de tijd en score, in json formaat
 	var saveScore = File.new()
 	
 	var scoreData = {
@@ -42,8 +43,9 @@ func saveScore():
 		"bestTime": elapsedTime
 	}
 	
-	if !saveScore.file_exists("user://score.save"):
+	if !saveScore.file_exists("user://score.save"): #bestaat de file niet, dan aanmaken
 		saveScore.open("user://score.save", File.WRITE)
+		scoreData.bestTime = elapsedTime
 		saveScore.store_line(to_json(scoreData))
 		saveScore.close()
 	else:

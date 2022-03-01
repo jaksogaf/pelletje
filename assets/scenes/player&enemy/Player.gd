@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # variables
-var gravity = 3
+var gravity = 10
 var velocity = Vector2.ZERO
 var moveVector = Vector2.ZERO
 var maxHorizontalSpeed = 110
