@@ -7,10 +7,7 @@ var seconds = 0
 	
 
 func _process(delta):
-	if (get_node("/root/GetLevels").currentLevel == 0 || get_node("/root/GetLevels").currentLevel == -1 ):
-		self.visible = false
-	elif (get_node("/root/GetLevels").currentLevel != 0):
-		self.visible = true
+	if (get_node("/root/GetLevels").currentLevel > 0):
 		elapsedTime += delta
 		minutes = int(elapsedTime/60)
 		seconds = int(fmod(elapsedTime, 60))

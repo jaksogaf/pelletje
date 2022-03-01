@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _on_EnemySpawnTimer_timeout():
-	if (get_node("/root/GlobalCamera/PlayerController").spawnerEnemyCount <20):
+	if (get_node("/root/GlobalCamera/PlayerController").spawnerEnemyCount <15):
 		var walkingEnemy = walkingEnemyLoad.instance()
 		var enemyPosition = Vector2(rand_range(690,705), -650)
 		walkingEnemy.position = enemyPosition

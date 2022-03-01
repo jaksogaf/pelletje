@@ -18,33 +18,44 @@ script = ExtResource( 4 )
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
-[node name="HealthUI" type="Control" parent="Hud"]
-margin_left = 5.0
+[node name="UI" type="Control" parent="Hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Control" parent="Hud/UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinCounter" type="Label" parent="Hud/UI/Coins"]
+margin_left = 575.0
 margin_top = 5.0
-margin_bottom = 358.0
+margin_right = 615.0
+margin_bottom = 42.0
+text = "0"
+align = 2
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthEmpty" type="TextureRect" parent="Hud/HealthUI"]
-margin_right = 45.0
-margin_bottom = 11.0
-texture = ExtResource( 5 )
-stretch_mode = 2
+[node name="CoinSprite" type="TextureRect" parent="Hud/UI/Coins"]
+margin_left = 617.0
+margin_top = 3.0
+margin_right = 681.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthFull" type="TextureRect" parent="Hud/HealthUI"]
-margin_right = 45.0
-margin_bottom = 11.0
-texture = ExtResource( 6 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TimeText" type="Label" parent="Hud"]
+[node name="TimeText" type="Label" parent="Hud/UI"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 635.0
@@ -57,32 +68,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Coins" type="Control" parent="Hud"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoinCounter" type="Label" parent="Hud/Coins"]
-margin_left = 575.0
+[node name="HealthUI" type="Control" parent="Hud/UI"]
+margin_left = 5.0
 margin_top = 5.0
-margin_right = 615.0
-margin_bottom = 42.0
-text = "0"
-align = 2
-script = ExtResource( 3 )
+margin_right = 5.0
+margin_bottom = 358.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinSprite" type="TextureRect" parent="Hud/Coins"]
-margin_left = 617.0
-margin_top = 3.0
-margin_right = 681.0
-margin_bottom = 67.0
-rect_scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 7 )
+[node name="HealthEmpty" type="TextureRect" parent="Hud/UI/HealthUI"]
+margin_right = 45.0
+margin_bottom = 11.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthFull" type="TextureRect" parent="Hud/UI/HealthUI"]
+margin_right = 45.0
+margin_bottom = 11.0
+texture = ExtResource( 6 )
+stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
