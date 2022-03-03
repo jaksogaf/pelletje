@@ -16,7 +16,8 @@ var bestScore = 0
 func _ready():
 	get_node("/root/GlobalCamera").global_position = Vector2.ZERO #camera terug zetten
 	score = get_node("/root/GlobalCamera/PlayerController").score
-
+	elapsedTime = get_node("/root/GlobalCamera/Hud/UI/Timer").elapsedTime
+	
 	saveScore()
 	time()
 
@@ -52,17 +53,19 @@ func saveScore():
 		saveScore.open("user://score.save", File.READ)
 		if (scoreData.highScore < score):
 			scoreData.highScore = score
-		if (scoreData.bestTime > elapsedTime):
+		if(scoreData.bestTime == 0):
+			scoreData.bestTime = elapsedTime
+		elif (scoreData.bestTime > elapsedTime):
 			scoreData.bestTime = elapsedTime
 		bestTime = scoreData.bestTime
 		bestScore = scoreData.highScore
+		print("bestTime ", bestTime)
 		saveScore.close()
 		saveScore.open("user://score.save", File.WRITE)
 		saveScore.store_line(to_json(scoreData))
 
 func time():
 	#current Time
-	elapsedTime = get_node("/root/GlobalCamera/Hud/UI/Timer").elapsedTime
 	minutes = int(elapsedTime/60)
 	seconds = int(fmod(elapsedTime, 60))
 	if (seconds < 10):

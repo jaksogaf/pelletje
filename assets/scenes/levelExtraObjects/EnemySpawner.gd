@@ -3,7 +3,7 @@ extends Node
 var walkingEnemyLoad = load("res://assets/scenes/player&enemy/WalkingEnemy.tscn")
 
 func _on_EnemySpawnTimer_timeout(): #dit wordt getriggerd als EnemySpawnTimer in level 5 afloopt
-	if (get_node("/root/GlobalCamera/PlayerController").spawnerEnemyCount < 15):
+	if (get_node("/root/GlobalCamera/PlayerController").spawnerEnemyCount < 20):
 		var walkingEnemy = walkingEnemyLoad.instance() 
 		var enemyPosition = Vector2(rand_range(690,705), -650) #variatie in x positie van de enemy
 		walkingEnemy.position = enemyPosition
