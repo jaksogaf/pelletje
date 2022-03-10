@@ -1,2 +1,0 @@
-Godot bevat geen global variables, je kan wel .tscn en .gd scripts altijd geladen hebben, via autoload.
-Autoload is te vinden via Project/project settings/autoload
