@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/enemy/character_0002.png" type="Texture" id=1]
+[ext_resource path="res://assets/scenes/player&enemy/WalkingEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/enemy/character_0003.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 9, 2 )
+
+[node name="WalkingEnemyKinematic" type="KinematicBody2D"]
+position = Vector2( 6, 249 )
+script = ExtResource( 2 )
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2( 12, 0 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collide_with_areas = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2( -12, 0 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collide_with_areas = true
+
+[node name="WalkingEnemySprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1 )
+frames = SubResource( 4 )
+animation = "walk"
+frame = 1
+
+[node name="CollisionShapeKinematic" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2( 0, 3.5 )
+shape = SubResource( 1 )
+
+[node name="WEPDArea" type="Area2D" parent="."]
+position = Vector2( -6, -249 )
+
+[node name="CollisionWEPD" type="CollisionShape2D" parent="WEPDArea"]
+position = Vector2( 6, 252.5 )
+shape = SubResource( 2 )
+
+[node name="WEDArea" type="Area2D" parent="."]
+
+[node name="CollisionWEDArea" type="CollisionShape2D" parent="WEDArea"]
+position = Vector2( 0, -8 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="WEPDArea" to="." method="_on_WEPDArea_body_entered"]
+[connection signal="body_entered" from="WEDArea" to="." method="_on_WEDArea_body_entered"]
