@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scenes/player&enemy/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/character_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/sfx/jump.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sfx/player_hurt.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/sfx/enemy_death.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/coin.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -77,3 +78,6 @@ pitch_scale = 1.15
 [node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 volume_db = 10.0
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

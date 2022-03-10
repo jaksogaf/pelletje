@@ -70,7 +70,7 @@ func playerAnimation():
 		$AnimatedSprite.play("run")
 	else:
 		$AnimatedSprite.play("idle")
-	#dit flipt de sprite
+	#dit flipt de sprites
 	if(moveVector.x != 0):
 		$AnimatedSprite.flip_h = false if (moveVector.x > 0) else true
 
@@ -83,3 +83,6 @@ func enemyColission(): #deze code wordt uitgevoerd als de speler een enemie vana
 
 func enemyDeath(): #het geluid van de enemy death, dit kan niet bij enemy zelf want die wordt verwijderd voordat het geluid klaar is met afspelen
 	$EnemyDeath.play()
+	
+func coinSound():
+	$CoinSound.play()

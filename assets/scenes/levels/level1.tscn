@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/scenes/levelExtraObjects/Exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/player&enemy/WalkingEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/background/backgrounds-export.png" type="Texture" id=3]
 [ext_resource path="res://assets/scenes/player&enemy/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levelExtraObjects/TileMapGrass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scenes/collectibles/Coin.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,6 +28,74 @@ centered = false
 
 [node name="Exit" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1126, -38 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="coins" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 93, 255 )
+
+[node name="coins2" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 337, -34 )
+
+[node name="coins3" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 597, -126 )
+
+[node name="coins4" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1355, 90 )
+
+[node name="coins5" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 896, -181 )
+
+[node name="coins6" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 786, 108 )
+
+[node name="coins7" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1204, -126 )
+
+[node name="coins8" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1363, -181 )
+
+[node name="coins9" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -589, 757 )
+
+[node name="coins10" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -566, 757 )
+
+[node name="coins11" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -540, 757 )
+
+[node name="coins12" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -621, 703 )
+
+[node name="coins13" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -661, 685 )
+
+[node name="coins14" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -613, 1046 )
+
+[node name="coins15" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -602, 1046 )
+
+[node name="coins16" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -591, 1046 )
+
+[node name="coins17" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -580, 1046 )
+
+[node name="coins18" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -569, 1046 )
+
+[node name="coins19" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -558, 1046 )
+
+[node name="coins20" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -547, 1046 )
+
+[node name="coins21" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -536, 1046 )
+
+[node name="coins22" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( -525, 1046 )
 
 [node name="WalkingEnemies" type="Node" parent="."]
 
