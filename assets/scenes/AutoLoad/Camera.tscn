@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/scenes/AutoLoad/Camera.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/AutoLoad/Timer.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/AutoLoad/CoinCounter.gd" type="Script" id=3]
+[ext_resource path="res://assets/scenes/AutoLoad/PlayerController.gd" type="Script" id=4]
+[ext_resource path="res://assets/ui/HeartUIEmpty.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/HeartUIFull.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/CoinUI1.png" type="Texture" id=7]
+[ext_resource path="res://assets/sfx/player_death.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/coin.wav" type="AudioStream" id=9]
+
+[node name="Camera" type="Camera2D"]
+position = Vector2( 318, 179 )
+current = true
+script = ExtResource( 1 )
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="PlayerController"]
+stream = ExtResource( 8 )
+volume_db = 10.0
+pitch_scale = 0.75
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="PlayerController"]
+stream = ExtResource( 9 )
+volume_db = 2.0
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="Hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Control" parent="Hud/UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinCounter" type="Label" parent="Hud/UI/Coins"]
+margin_left = 575.0
+margin_top = 5.0
+margin_right = 615.0
+margin_bottom = 42.0
+text = "0"
+align = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinSprite" type="TextureRect" parent="Hud/UI/Coins"]
+margin_left = 617.0
+margin_top = 3.0
+margin_right = 681.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="Hud/UI"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 19.0
+size_flags_vertical = 1
+text = "Placeholder:text"
+align = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthUI" type="Control" parent="Hud/UI"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 358.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthEmpty" type="TextureRect" parent="Hud/UI/HealthUI"]
+margin_right = 45.0
+margin_bottom = 11.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthFull" type="TextureRect" parent="Hud/UI/HealthUI"]
+margin_right = 45.0
+margin_bottom = 11.0
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
