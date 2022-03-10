@@ -14,18 +14,16 @@ var maxJumpCount = 1
 
 # func _ready() wordt eenmalig uitgevoerd op startup
 func _ready():
-	playerStartPosition = get_position()
+	playerStartPosition = get_position() #de startpositie van de speler
 
 # func _process wordt elke frame uitgevoerd, de delta zorg voor delta aka frame independent 
 # aka iemand met hogere refresh rate zal niet sneller gaan
 func _process(delta):
-	if (position.y > 1250):
-		var lvl = get_node("/root/GlobalCamera").currentLevel
+	if (position.y > 1250): #de speler in de void wordt automatisch terug geteleporteerd
+		var lvl = get_node("/root/GetLevels").currentLevel
 		get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
 		$AnimatedSprite.flip_h = false
-		var levelPaths = get_node("/root/GetLevels").levelsPaths()
-		print(levelPaths)
-		get_tree().change_scene(levelPaths[(lvl-1)])
+		position = playerStartPosition
 	
 	moveVector = movement_vector()
 	#deacceleration, je stopt niet instant
@@ -56,7 +54,7 @@ func _process(delta):
 		jumpCount += 1
 			
 		
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP) #moveandslide zorgt voor de uiteindelijke beweging en collisions van een kinematic2D
 	
 	playerAnimation()
 	
@@ -78,8 +76,7 @@ func playerAnimation():
 	if(moveVector.x != 0):
 		$AnimatedSprite.flip_h = false if (moveVector.x > 0) else true
 
-func enemyColission():
-	var levelPaths = get_node("/root/GetLevels").levelsPaths()
-	var lvl = get_node("/root/GlobalCamera").currentLevel
-	get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
-	get_tree().change_scene(levelPaths[(lvl-1)])
+func enemyColission(): #deze code wordt uitgevoerd als de speler een enemie vanaf de zijkant raakt
+	if (get_node("/root/GlobalCamera/PlayerController").playerHealth > 0):
+		get_node("/root/GlobalCamera/PlayerController").playerHealth -= 1
+		position = playerStartPosition
